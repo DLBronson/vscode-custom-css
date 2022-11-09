@@ -1,0 +1,120 @@
+.mtk1 {
+  color:currentColor;
+  text-shadow: 0 0 1px black,
+  0 0 2px black,
+  0 0 3px black,
+  0 0 4px black,
+  0 0 5px black,
+  0 0 6px rgb(8, 245, 249),
+  0 0 7px rgb(202, 238, 248);
+}
+
+.mtk1.detected-link{
+  text-decoration: underline;
+  text-underline-position: under;
+  color: blue;
+}
+
+.mtk21 {
+  color:goldenrod;
+  text-shadow: 0 0 1px black,
+  0 0 2px black,
+  0 0 3px black,
+  0 0 4px black,
+  0 0 5px black,
+  0 0 7px rgb(246, 248, 249);
+}
+
+.mtk5 {
+  color:#07f596;
+
+  text-shadow: 0 0 1px black,
+  0 0 2px black,
+  0 0 3px black,
+  0 0 4px black,
+  0 0 5px #07f5966a,
+  0 0 6px #07f596;
+}
+
+.mtk5 .mtkb {
+  color:floralwhite;
+
+
+}
+
+  .mtk1.bracket-highlighting-1 {
+  color:currentColor;
+  text-shadow: 0 0 1px black,
+  0 0 2px black,
+  0 0 3px black,
+  0 0 4px black,
+  0 0 5px white;
+}
+
+  .mtk2.bracket-highlighting-2 {
+  color:currentColor;
+  text-shadow: 0 0 1px black,
+  0 0 2px black,
+  0 0 3px black,
+  0 0 4px black,
+  0 0 5px white;
+}
+
+.mtkb {
+  font-weight: normal;
+}
+
+.monaco-editor .detected-link, .monaco-editor .detected-link-active, .monaco-editor .inline-completion-text-to-replace {
+
+  text-decoration: underline;
+  text-underline-position: under;
+  color:springgreen;
+  text-shadow: 0 0 1px black,
+  0 0 2px black,
+  0 0 3px black,
+  0 0 4px black,
+  0 0 5px orangered;
+}
+/*
+
+
+
+
+
+  .mtk3.bracket-highlighting-1 {
+  color:currentColor;
+  text-shadow: 0 0 1px black,
+  0 0 2px black,
+  0 0 3px black,
+  0 0 4px black,
+  0 0 5px white;
+}
+
+  .mtk4.bracket-highlighting-1 {
+  color:currentColor;
+  text-shadow: 0 0 1px black,
+  0 0 2px black,
+  0 0 3px black,
+  0 0 4px black,
+  0 0 5px white;
+}
+
+
+  .mtk5 {
+    color:currentColor;
+  }
+
+  .mtk6 {
+    color:currentColor;
+  }
+
+  .mtk9 {
+    color:currentColor;
+  }
+
+  .mtk10 {
+    color:currentColor;
+}
+
+
+*/
