@@ -20,3 +20,6 @@ start batch
 Hi Nate, You will have your program today as I only have set up sheets to finish creating.
 
 The program for this part is like a snowball. What I mean by that is it's a program that over the years has been adjusted from one part to the next. An accumulating
+Which left the master cam file full of redundant and or unnecessary toolpath, cutters and worst of all, unnecessary origins
+
+I decided to reprogram the part I'm just trying to send a message I'm sorry
