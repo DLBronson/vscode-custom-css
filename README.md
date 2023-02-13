@@ -17,25 +17,3 @@ start batch
 @Cscript.exe Alive.js
 @timeout 1
 
-Hi Nate, You will have your program today as I only have set up sheets to finish creating.
-
-The program for this part is like a snowball. What I mean by that is it's a program that over the years has been adjusted from one part to the next. An accumulating
-Which left the master cam file full of redundant and or unnecessary toolpath, cutters and worst of all, unnecessary origins
-
-I decided to reprogram the part I'm just trying to send a message I'm sorry
-
-The program now uses a single centralized origin which makes the 
-setup much faster for the machinist and gives them a single origin 
-to manage rather than six different origins with some of those origins almost impossible to pick u
-I feel this type of setup removes uncertainty and replaces it with
-Something the programmer and machine is can trust. A single source for all dimensions that's easy 
-The machinist to find
-
-Friday when I received a PCR for this job I jumped on it, to correct it
-But I had a knot in my stomach because I knew this job was going to be a PCR nightmare for me
-Because 80% of the programming and planning for this setup
-It's not mine. I'll explain, this program is like a snowball,
-Each time apart passes the programming department that looks like this elbow
-This program is adapted to fit that part and in the process the remnants of previous programming
-Are not removed from the master cam file leaving the file bloated with unnecessary redundant
-Origins, toolpath and cutters. 
