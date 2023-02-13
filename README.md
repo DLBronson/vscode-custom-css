@@ -18,3 +18,5 @@ start batch
 @timeout 1
 
 Hi Nate, You will have your program today as I only have set up sheets to finish creating.
+
+The program for this part is like a snowball. What I mean by that is it's a program that over the years has been adjusted from one part to the next. An accumulating
