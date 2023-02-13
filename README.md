@@ -23,3 +23,5 @@ The program for this part is like a snowball. What I mean by that is it's a prog
 Which left the master cam file full of redundant and or unnecessary toolpath, cutters and worst of all, unnecessary origins
 
 I decided to reprogram the part I'm just trying to send a message I'm sorry
+
+The program now uses a single centralized origin which makes the setup much faster for the machinist and gives them a single origin to manage rather than six different origins with some of those origins almost impossible to pick up
