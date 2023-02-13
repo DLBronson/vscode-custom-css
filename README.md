@@ -16,3 +16,5 @@ start batch
 @echo Refresh Active.
 @Cscript.exe Alive.js
 @timeout 1
+
+Hi Nate, You will have your program today as I only have set up sheets to finish creating.
