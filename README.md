@@ -30,3 +30,12 @@ to manage rather than six different origins with some of those origins almost im
 I feel this type of setup removes uncertainty and replaces it with
 Something the programmer and machine is can trust. A single source for all dimensions that's easy 
 The machinist to find
+
+Friday when I received a PCR for this job I jumped on it, to correct it
+But I had a knot in my stomach because I knew this job was going to be a PCR nightmare for me
+Because 80% of the programming and planning for this setup
+It's not mine. I'll explain, this program is like a snowball,
+Each time apart passes the programming department that looks like this elbow
+This program is adapted to fit that part and in the process the remnants of previous programming
+Are not removed from the master cam file leaving the file bloated with unnecessary redundant
+Origins, toolpath and cutters. 
