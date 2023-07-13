@@ -33,3 +33,21 @@ with open('output.txt', 'w') as file:
 
 
     line. The pattern could be something like: ^(?=.*\bG1\b)(?=.*\bF\b).*$. This pattern uses positive lookahead assertions (?=...) to ensure that both^(?=.*\bG1\b)(?=.*\bF\b).*$ for this case
+import re
+
+# Read the input text or file
+with open('input.txt', 'r') as file:
+    text = file.read()
+
+# Delete lines with "M50"
+pattern_delete = r'^.*M50.*$'
+text_without_m50 = re.sub(pattern_delete, '', text, flags=re.MULTILINE)
+
+# Add "M50" above lines with "G1" and "F"
+pattern_add_m50 = r'(.*\bG1\b.*\bF\b.*)'
+new_text = re.sub(pattern_add_m50, r'M50\n\1', text_without_m50)
+
+# Write the modified text back to the file
+with open('output.txt', 'w') as file:
+    file.write(new_text)
+    
