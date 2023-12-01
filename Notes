@@ -1,17 +1,3 @@
-@echo off
-setlocal enabledelayedexpansion
+https://s3.us-west-2.amazonaws.com/jbcourt.com/QSM_SCREENSHOTS_REV+002.CATScript
 
-REM Prompt the user for the root folder name
-set /p root="Enter root folder name: "
-
-REM Create the root folder
-mkdir "%root%"
-cd "%root%"
-
-REM Create the subfolders
-mkdir "folder_a"
-mkdir "folder_b"
-mkdir "folder_c"
-
-echo Folder structure for %root% created successfully.
-pause
+https://s3.us-west-2.amazonaws.com/jbcourt.com/JB-NewShotMacro.catscript
