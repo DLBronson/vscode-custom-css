@@ -1,32 +1,26 @@
-# Prompt the user for file extensions
-$fileExtensions = Read-Host -Prompt "Enter file extensions (comma-separated, e.g., txt, pdf):" 
+@echo off
+setlocal enabledelayedexpansion
 
-# Convert the input to an array of extensions
-$fileExtensions = $fileExtensions -split ',' | ForEach-Object { $_.Trim() }
+REM Prompt the user for file extensions
+set /p fileExtensions=Enter file extensions (comma-separated, e.g., txt, pdf): 
 
-# Prompt the user for the search directory
-$searchDirectory = Read-Host -Prompt "Enter the directory path to search in:" 
+REM Prompt the user for the search directory
+set /p searchDirectory=Enter the directory path to search in: 
 
-# Get all files with the specified extensions in the directory and its subdirectories
-$files = Get-ChildItem -Path $searchDirectory -File -Recurse -Include $fileExtensions
+REM Create the HTML file to store the results
+set htmlFilePath=FileList.html
+echo ^<html^>^<head^>^<title^>File List^</title^>^</head^>^<body^> > %htmlFilePath%
+echo ^<h1^>File List for %searchDirectory%^</h1^> >> %htmlFilePath%
+echo ^<ul^> >> %htmlFilePath%
 
-# Create an HTML file to store the results
-$htmlFilePath = "FileList.html"
-$htmlFile = New-Object System.IO.StreamWriter -ArgumentList $htmlFilePath -Append
+REM Loop through the files and create hyperlinks in the HTML
+for /r %searchDirectory% %%F in (%fileExtensions%) do (
+    set "link=%%~fF"
+    set "link=!link:&=^&!"
+    echo ^<li^>^<a href="!link!"^>!link!^</a^>^</li^> >> %htmlFilePath%
+)
 
-# Create the HTML header
-$htmlFile.WriteLine("<html><head><title>File List</title></head><body>")
-$htmlFile.WriteLine("<h1>File List for $searchDirectory</h1>")
-$htmlFile.WriteLine("<ul>")
+REM Close the HTML
+echo ^</ul^>^</body^>^</html^> >> %htmlFilePath%
 
-# Loop through the files and create hyperlinks in the HTML
-foreach ($file in $files) {
-    $link = $file.FullName.Replace("&", "&amp;")
-    $htmlFile.WriteLine("<li><a href='$link'>$link</a></li>")
-}
-
-# Close the HTML
-$htmlFile.WriteLine("</ul></body></html>")
-$htmlFile.Close()
-
-Write-Host "File list generated and saved to $htmlFilePath"
+echo File list generated and saved to %htmlFilePath%
