@@ -1,131 +1,32 @@
+# Prompt the user for file extensions
+$fileExtensions = Read-Host -Prompt "Enter file extensions (comma-separated, e.g., txt, pdf):" 
 
+# Convert the input to an array of extensions
+$fileExtensions = $fileExtensions -split ',' | ForEach-Object { $_.Trim() }
 
-Hey David,
+# Prompt the user for the search directory
+$searchDirectory = Read-Host -Prompt "Enter the directory path to search in:" 
 
-Just reaching out to check on the ITAR compliance of Everything. I'm thinking it's all good since I haven't seen it sending (exporting) data over the Internet or anywhere else.
+# Get all files with the specified extensions in the directory and its subdirectories
+$files = Get-ChildItem -Path $searchDirectory -File -Recurse -Include $fileExtensions
 
- Cool if I use it at my new gig? 😎
+# Create an HTML file to store the results
+$htmlFilePath = "FileList.html"
+$htmlFile = New-Object System.IO.StreamWriter -ArgumentList $htmlFilePath -Append
 
-John Bettencourt 
+# Create the HTML header
+$htmlFile.WriteLine("<html><head><title>File List</title></head><body>")
+$htmlFile.WriteLine("<h1>File List for $searchDirectory</h1>")
+$htmlFile.WriteLine("<ul>")
 
-Hi John Bettencourt,
- 
-"Everything" is ITAR compliant.
- 
-The software does not make any remote connections by default.
- 
- 
-Privacy
-Visiting voidtools.com
-Your Internet Protocol (IP) address, page request and browser type is logged when you visit voidtools.com
+# Loop through the files and create hyperlinks in the HTML
+foreach ($file in $files) {
+    $link = $file.FullName.Replace("&", "&amp;")
+    $htmlFile.WriteLine("<li><a href='$link'>$link</a></li>")
+}
 
-Information is kept for the current and previous month.
+# Close the HTML
+$htmlFile.WriteLine("</ul></body></html>")
+$htmlFile.Close()
 
-Cookies may be used to uniquely identify your browser when visiting the forums.
-
-
-Creating a forum account
-Your Internet Protocol (IP) address is recorded when creating a forum account.
-
-Your IP is checked with stopforumspam to prevent spam.
-
-
-"Everything" Client
-The "Everything" client stores a cache of all file and folder names.
-
-This information is stored locally in the Everything.db file and is not sent anywhere remotely.
-
-
-The "Everything" client stores run history by default.
-
-Run history can be disabled from Tools -> Options -> History.
-
-This information is stored locally in the RunHistory.csv file and is not sent anywhere remotely.
-
-
-The "Everything" client stores search history if enabled.
-
-Search history can be disabled from Tools -> Options -> History.
-
-This information is stored locally in the SearchHistory.csv file and is not sent anywhere remotely.
-
-
-The "Everything" client may store other personal information in the Everything.ini or ETP/FTP/HTTP logs.
-
-This information is stored locally and is not sent anywhere remotely.
-
-
-
-Update notifications
-The following information is logged by voidtools.com, if you have enabled Check for updates on startup
-
-Your IP address
-
-Version of "Everything" you are currently running
-
-Information is kept for the current and previous month.
-
-
-
-ETP/FTP/HTTP Servers
-Starting a HTTP/FTP/ETP server may provide users with undesired access to private information.
-
-Windows will block these servers from remote access with the default firewall settings.
-
-The following information may be accessed by a user if an ETP/FTP/HTTP server is started:
-
-Your IP address
-
-Any file or folder "Everything" has indexed.
-
-
-
-Spyware, Adware and Malware
-"Everything" does not contain any spyware, adware or malware.
-
-
-
-Data collection
-voidtools does not collect any data.
-
-
-Debug logs and crash dumps emailed to voidtools are deleted after 7 days.
-
-
-Any data shared with voidtools.com will not be shared with anyone.
-
- 
- 
- 
- 
- 
-I give you permission to use Everything at your new gig.
- 
-	Permission is hereby granted, free of charge, to any person obtaining a 
-	copy of this software and associated documentation files (the "Software"), 
-	to deal in the Software without restriction, including without limitation 
-	the rights to use, copy, modify, merge, publish, distribute, sublicense, 
-	and/or sell copies of the Software, and to permit persons to whom the 
-	Software is furnished to do so, subject to the following conditions:
-
-	The above copyright notice and this permission notice shall be included in 
-	all copies or substantial portions of the Software.
-
-	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
-	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
-	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
-	FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
-	DEALINGS IN THE SOFTWARE.
- 
-Regards,
-David
-Show quoted text
-Error Icon
-Recipient inbox full
-Your message couldn't be delivered to johnb@agmachine.com. Their inbox is full, or it's getting too much mail right now.
-The response from the remote server was:
-550 Mailbox is over quota
-
-Show quoted text
+Write-Host "File list generated and saved to $htmlFilePath"
