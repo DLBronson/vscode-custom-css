@@ -1,26 +1,7 @@
-@echo off
-setlocal enabledelayedexpansion
+"Hey Derek,
 
-REM Prompt the user for file extensions
-set /p fileExtensions=Enter file extensions (comma-separated, e.g., txt, pdf): 
+Great to hear you're doing well! 😎
 
-REM Prompt the user for the search directory
-set /p searchDirectory=Enter the directory path to search in: 
+So, during the whole COVID saga, I was grinding it out at QSM, putting in those record hours, and even snagged a bonus for two straight years of perfect attendance through the COVID chaos. But eventually, I decided it was time to move on.
 
-REM Create the HTML file to store the results
-set htmlFilePath=FileList.html
-echo ^<html^>^<head^>^<title^>File List^</title^>^</head^>^<body^> > %htmlFilePath%
-echo ^<h1^>File List for %searchDirectory%^</h1^> >> %htmlFilePath%
-echo ^<ul^> >> %htmlFilePath%
-
-REM Loop through the files and create hyperlinks in the HTML
-for /r %searchDirectory% %%F in (%fileExtensions%) do (
-    set "link=%%~fF"
-    set "link=!link:&=^&!"
-    echo ^<li^>^<a href="!link!"^>!link!^</a^>^</li^> >> %htmlFilePath%
-)
-
-REM Close the HTML
-echo ^</ul^>^</body^>^</html^> >> %htmlFilePath%
-
-echo File list generated and saved to %htmlFilePath%
+Once I had my son up to speed as a CNC programmer there, I took my exit. Chuck and I worked out the plan, and he gave me the green light to take a few months off before I kickstart my gig at Blue Origin. Time for a breather, you know?" 🚀
