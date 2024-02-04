@@ -1,1 +1,42 @@
 
+Certainly! Here's the script modified for a Linux bash script to organize recorded videos by the date and IP address of each camera:
+
+```bash
+#!/bin/bash
+
+# Define camera configurations as an array of IP address and RTSP URLs
+camera_configs=(
+  "CAMERA_IP1,rtsp://USERNAME1:PASSWORD1@CAMERA_IP1:PORT1/VIDEO_PATH1"
+  "CAMERA_IP2,rtsp://USERNAME2:PASSWORD2@CAMERA_IP2:PORT2/VIDEO_PATH2"
+  # Add more camera configurations as needed
+)
+
+# Output base directory
+output_base_dir="/path/to/save/videos"
+
+# Create a new directory for each day to organize recordings
+today=$(date +%Y-%m-%d)
+mkdir -p "$output_base_dir/$today" 2>/dev/null
+
+# Loop through camera configurations and capture video
+for config in "${camera_configs[@]}"; do
+  IFS=',' read -r camera_ip camera_url <<< "$config"
+  
+  camera_name=$(basename "$camera_url")
+  camera_name="${camera_name%.*}"
+  
+  ffmpeg -i "$camera_url" -c:v copy -an -f segment -segment_time 900 -reset_timestamps 1 -strftime 1 "$output_base_dir/$today/$camera_ip/$camera_name_%Y-%m-%d_%H-%M-%S.mp4"
+done
+```
+
+In this Linux bash script:
+
+1. Camera configurations are defined as an array of IP addresses and RTSP URLs, separated by commas.
+
+2. The `output_base_dir` variable specifies the base directory where recordings will be saved.
+
+3. The script creates a new directory for each day to organize recordings by date.
+
+4. It loops through the camera configurations, extracts the camera IP address and name from the URL, and uses FFmpeg to capture video from each camera. The recordings are saved in 15-minute segments and organized by date, camera IP address, and camera name within the specified output directory structure.
+
+Make sure to replace the placeholder values in the script with your actual camera configurations and desired output directory. Save the script with a `.sh` extension, make it executable with `chmod +x scriptname.sh`, and run it in a Linux environment.
